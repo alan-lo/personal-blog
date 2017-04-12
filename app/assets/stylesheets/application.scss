@@ -1,0 +1,133 @@
+@import "bootstrap";
+@import "*";
+
+$spacer: (
+    300: 300px,
+    200: 200px,
+    100: 100px,
+    75: 75px,
+    50: 50px,
+    40: 40px,
+    35: 35px,
+    30: 30px,
+    25: 25px,
+    20: 20px,
+    10: 10px,
+    5 : 5px,
+    0 : 0px
+);
+
+$font: (
+    1: 1em,
+    1\.5: 1.5em,
+    2: 2em,
+    2\.5: 2.5em,
+    3: 3em
+);
+
+@each $key, $value in $font{
+  .font-size-#{$key} {
+    font-size: $value;
+  }
+}
+
+/* For each key in the map, created an own class */
+@each $key, $value in $spacer {
+  .mt-3-#{$key} {
+    margin-top: map-get($spacer, $key) !important;
+  }
+  .mb-3-#{$key} {
+    margin-bottom: map-get($spacer, $key) !important;
+  }
+  .pl-3-#{$key} {
+    padding-left: map-get($spacer, $key) !important;
+  }
+  .pr-3-#{$key} {
+    padding-right: map-get($spacer, $key) !important;
+  }
+  .ml-3-#{$key} {
+    margin-left: map-get($spacer, $key) !important;
+  }
+  .mr-3-#{$key} {
+    margin-right: map-get($spacer, $key) !important;
+  }
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Oswald, 'Open Sans', "Lucida Sans", "Tahoma", "Arial";
+}
+
+#navbarTogglerMyNavBar > ul:nth-child(1){
+  order: 2;
+}
+
+#navbarTogglerMyNavBar > ul:nth-child(2){
+  order: 1;
+}
+#navbarTogglerMyNavBar > ul:nth-child(3){
+  order: 3;
+}
+
+.nav-link{
+   padding-top: 0 !important;
+   padding-bottom: 0 !important;
+
+ }
+
+ footer{
+   width: 100%;
+   height: 80px;
+   font-size: 1.5em;
+ }
+
+ .social-icons > i{
+ margin-right: 30px;
+ }
+ .social-icons > i:last-child {
+   margin-right :0;
+ }
+
+ nav {
+   font-size: 1.3em;
+   opacity: 0.95;
+ }
+
+ .navbar-toggler{
+   color:black !important;
+ }
+
+.navbar-toggler{
+  border: 1px solid white;
+}
+
+nav a, .fa-bars, nav span {
+  color: white !important;
+}
+
+nav a:focus, nav a:hover{
+  color: grey !important;
+}
+.bar{
+  display:inline;
+}
+
+.error{
+  color:red;
+}
+
+.success{
+  color:green;
+}
+
+.nav-link {
+  display: inline-block !important;
+}
+
+@media (max-width: 992px) {
+    .bar{
+      display:none;
+    }
+}

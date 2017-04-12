@@ -1,0 +1,24 @@
+<div class="form-group row align-items-center">
+  <%= f.label :first_name, "First Name:", class: "pl-3-0 col-4 col-form-label font-size-1.5" %>
+  <div class="col-5">
+    <%= f.text_field :first_name, class: "form-control", :value => @user.first_name %>
+  </div>
+</div>
+<div class="form-group row align-items-center">
+  <%= f.label :last_name, "Last Name:", class: "pl-3-0 col-4 col-form-label font-size-1.5" %>
+  <div class="col-5">
+    <%= f.text_field :last_name, class: "form-control", :value => @user.last_name  %>
+  </div>
+</div>
+<div class="form-group row align-items-center">
+  <%= f.label :email, "Email:", class: "pl-3-0 col-4 col-form-label font-size-1.5" %>
+  <div class="col-5">
+    <%= f.email_field :email, class: "form-control", :value => @user.email %>
+  </div>
+</div>
+<div class="form-group row align-items-start">
+  <%= f.label :profile, "Profile:", class: "pl-3-0 col-4 font-size-1.5" %>
+  <div class="col-5">
+    <%= f.text_area(:profile, {class: 'form-control'})%>
+  </div>
+</div>

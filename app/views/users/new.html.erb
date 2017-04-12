@@ -1,0 +1,25 @@
+<%= render partial: "user_form_header" , locals: {title:'New User'} %>
+      <%= form_for @user do |f| %>
+        <%= render partial: "form" , locals: {user:@user , f:f} %>
+        <div class="form-group row align-items-center">
+          <%= f.label :password, "Password:", class: "pl-3-0 col-4 col-form-label font-size-1.5" %>
+            <div class="col-5">
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row align-items-center">
+          <%= f.label :password_confirmation, "Password Confirmation:", class: "pl-3-0 col-4 col-form-label font-size-1.5" %>
+          <div class="col-5">
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.submit 'Create User', class: "btn btn-primary"%>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%=  @user.errors.full_messages.join(', ')%>
+          </div>
+        </div>
+      <% end %>
+<%= render partial: "user_form_footer" %>

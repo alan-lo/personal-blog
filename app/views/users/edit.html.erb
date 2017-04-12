@@ -1,0 +1,17 @@
+<%= render partial: "user_form_header" , locals: {title:'Edit User'} %>
+<%= form_for @user do |f| %>
+  <%= render partial: "form" , locals: {user:@user , f:f} %>
+  <div class="form-group row align-items-center">
+    <%= link_to 'Change Password', edit_password_path(@user), class: 'font-size-1.5' %>
+  </div>
+  <div class="form-group row">
+    <%= f.submit 'Save User', class: "btn btn-primary"%>
+  </div>
+  <div class="row">
+    <div class="col">
+      <span class="success font-size-1.5"><%= flash[:success] %></span>
+      <span><%=  @user.errors.full_messages.join(', ')%></span>
+    </div>
+  </div>
+<% end %>
+<%= render partial: "user_form_footer" %>

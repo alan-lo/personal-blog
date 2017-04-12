@@ -1,0 +1,155 @@
+<div class="container-fluid mt-3-50">
+  <div class="row">
+    <div class="offset-sm-1 col-sm-5 post-title">
+      <div class="font-size-2">
+        <%= @post.title %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-5 col-lg-5 post-detail">
+      <div>
+        <div>
+          <% if user_signed_in? %>
+            <% if @post.liked_by?(current_user) %>
+              <%= link_to like_path(@post.like_for(current_user)), method: :delete do %>
+                <% if @post.likes.count > 0 %>
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                <% else %>
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+             <%if  can?(:like, @post) %>
+                <%= link_to post_likes_path(@post), method: :post do%>
+                  <% if @post.likes.count > 0 %>
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                  <% else %>
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <% if @post.likes.count > 0 %>
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                <% else %>
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <span><%= @post.likes.count %></span>
+        </div>
+        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="col-md-12 pl-3-0 pr-3-0 post-pic">
+      <div class="jumbotron">
+        <h1>My Blog</h1>
+      </div>
+    </div>
+    <div class="offset-md-1 col-md-10 post-body">
+      <%= @post.body %>
+    </div>
+    <div class="offset-md-1 col-md-4 push-md-6  post-date font-size-1.5 text-right">
+      <%= @post.created_at.strftime("%Y-%m-%d") %>
+    </div>
+    <div class="offset-md-1 col-md-4 pull-md-5  post-category font-size-1.5 text-left">
+      <%= @post.category.name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-sm-1 col-sm-10 d-flex justify-content-end">
+      <%if can?(:manage, @post) %>
+        <span class="font-size-1.5"><%= link_to 'Edit' , edit_post_path(@post) %> &nbsp;|&nbsp; </span>
+        <span class="font-size-1.5"><%= link_to 'Delete Post', post_path(@post),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'}  %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs offset-md-1 col-md-6">
+      <div class="row d-flex flex-row">
+        <div class="col-3">
+          <img class="img-fluid" width="150" height="150" src="<%= asset_path('homer-simpson3.jpg')%>" alt="image">
+        </div>
+        <div class="col-9">
+          <div class="row">
+            <div class="col">
+              <h3><%= @post.user.first_name%> <%= @post.user.last_name%></h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col author-bio">
+              <%= @post.user.profile %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-md-2 col-md-8">
+      <div class="container-fluid">
+        <%= form_for [@post, @comment] do |f| %>
+          <div class="form-group row">
+            <%= f.label 'Comments:' , class: "col-form-label"%>
+            <%= f.text_area :body, class: "form-control", placeholder: "< body comment >", size:'60x6'%>
+          </div>
+          <div class="form-group row mb-3-20">
+            <div class="col pl-3-0">
+              <%= f.submit 'Create comment', class: "btn btn-primary"%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-md-2 col-md-8">
+      <hr>
+    </div>
+  </div>
+  <% @post.comments.each do |comment| %>
+    <div class="row">
+      <div class="col offset-md-2 col-md-8">
+        <div class="row">
+          <div class="col-3">
+            <img class="img-fluid" src="<%= asset_path('homer-simpson3.jpg') %>" alt="image">
+          </div>
+          <div class="col-9 comment-body">
+            <%=comment.body%>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-left">
+            <%= comment.user.first_name %>  <%= comment.user.last_name %>
+          </div>
+          <div class="col text-right">
+            <%= comment.created_at.strftime("%Y-%m-%d") %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-right font-size-sm">
+            <% if can?(:manage, comment) %>
+              <%= link_to 'Remove Comment', comment_path(comment), method: :delete,
+              data: {confirm: 'Are you sure?'} %>
+            <% end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <footer>
+    <div class="row">
+      <div class="offset-md-2 col-md-8">
+        <div class="d-flex flex-row justify-content-center font-size-1 social-icons">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+          <i class="fa fa-medium" aria-hidden="true"></i>
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

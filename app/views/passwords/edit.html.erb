@@ -1,0 +1,39 @@
+<div class="container-fluid new-post">
+  <div class="row">
+    <div class="col offset-sm-2 col-sm-8 mt-3-75">
+      <h1>Edit Password</h1>
+    </div>
+  </div>
+  <div class="row ml-3-0 mr-3-0">
+    <div class="offset-sm-2 col-sm-8  ">
+      <%= form_for @user , :url => { :controller => "passwords", :action => "update" } do |f| %>
+      <div class="form-group row align-items-center">
+        <%= f.label :currentpassword, "Current Password:", class: "pl-3-0 col-4 col-form-label font-size-1.5" %>
+        <div class="col-5">
+          <%= f.password_field :currentpassword, class: "form-control"%>
+        </div>
+      </div>
+      <div class="form-group row align-items-center">
+        <%= f.label :newpassword, "New Password:", class: "pl-3-0 col-4 col-form-label font-size-1.5" %>
+        <div class="col-5">
+          <%= f.password_field :newpassword, class: "form-control"%>
+        </div>
+      </div>
+        <div class="form-group row align-items-center">
+          <%= f.label :confirm, "Confirmation:", class: "pl-3-0 col-4 col-form-label font-size-1.5" %>
+          <div class="col-5">
+            <%= f.password_field :confirm, class: "form-control"%>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.submit 'Save Password', class: "btn btn-primary"%>
+        </div>
+        <div class="row">
+          <div class="col">
+            <span class="error font-size-1.5"><%=  flash[:error] %></span>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

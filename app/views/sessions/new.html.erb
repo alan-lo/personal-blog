@@ -1,0 +1,36 @@
+<div class="container-fluid new-post">
+  <div class="row">
+    <div class="col offset-sm-2 col-sm-8 mt-3-75">
+      <h1>Sign In</h1>
+    </div>
+  </div>
+  <div class="row ml-3-0 mr-3-0">
+    <div class="offset-sm-2 col-sm-8  ">
+      <%= form_tag sessions_path do%>
+        <div class="form-group row align-items-center">
+          <%= label_tag :email, "Email: ", class: "pl-3-0 col-3 col-form-label font-size-1.5" %>
+          <div class="col-5">
+            <%= email_field_tag(:email , "", class: "form-control") %>
+          </div>
+        </div>
+        <div class="form-group row align-items-center">
+          <%= label_tag :password, "Password: ", class: "pl-3-0 col-3 col-form-label font-size-1.5" %>
+          <div class="col-5">
+            <%= password_field_tag(:password, "", class:"form-control") %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= submit_tag 'Sign In', class: "btn btn-primary"%>
+        </div>
+        <div class="form-group row">
+          <%= link_to 'forgot password? click here', controller: "password_resets", action: "new"%>
+        </div>
+         <div class="row">
+          <div class="col pl-3-0 pr-3-0">
+            <span class="error"><%= alert %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
