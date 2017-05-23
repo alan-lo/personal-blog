@@ -26,9 +26,9 @@ Rails.application.routes.draw do
   resources :passwords
 
   resources :sessions, only: [:new, :create] do
-  delete :destroy, on: :collection
+    delete :destroy, on: :collection
   end
 
   match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
-  
+
 end

@@ -9,6 +9,9 @@ class Post < ApplicationRecord
   validates :title ,presence: true
   validates :body , presence: true
 
+  mount_uploader :image, PostImgUploader
+
+
   def liked_by?(user)
   # exists? returns true if the query in the argument returns something
   # it returns true if there is a like with the user reference 'user'

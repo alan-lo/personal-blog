@@ -60,6 +60,13 @@ body{
   font-family: Oswald, 'Open Sans', "Lucida Sans", "Tahoma", "Arial";
 }
 
+/*Styling for navbar */
+
+nav {
+   font-size: 1.3em;
+   opacity: 0.95;
+}
+
 #navbarTogglerMyNavBar > ul:nth-child(1){
   order: 2;
 }
@@ -71,58 +78,25 @@ body{
   order: 3;
 }
 
-.nav-link{
-   padding-top: 0 !important;
-   padding-bottom: 0 !important;
-
- }
-
- footer{
-   width: 100%;
-   height: 80px;
-   font-size: 1.5em;
- }
-
- .social-icons > i{
- margin-right: 30px;
- }
- .social-icons > i:last-child {
-   margin-right :0;
- }
-
- nav {
-   font-size: 1.3em;
-   opacity: 0.95;
- }
-
- .navbar-toggler{
-   color:black !important;
- }
-
 .navbar-toggler{
   border: 1px solid white;
 }
 
-nav a, .fa-bars, nav span {
-  color: white !important;
+.navbar-nav .nav-link, .navbar-nav .nav-item{
+  color: white;
 }
 
-nav a:focus, nav a:hover{
-  color: grey !important;
+.navbar-nav .nav-link:hover, .navbar-brand:hover, .navbar-brand:focus{
+  color: grey;
 }
+
 .bar{
   display:inline;
 }
 
-.error{
-  color:red;
-}
-
-.success{
-  color:green;
-}
-
 .nav-link {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   display: inline-block !important;
 }
 
@@ -130,4 +104,86 @@ nav a:focus, nav a:hover{
     .bar{
       display:none;
     }
+}
+
+.navbar-brand{
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.brand-icon-img{
+  margin-right: 5px;
+}
+
+.navbar-toggler .fa-bars {
+  color: white;
+  font-size: 1.5em;
+}
+
+.nav-item{
+  font-size: 0.9em;
+  letter-spacing: 1.5px;
+  display:flex;
+  align-items: center;
+  font-weight: 200;
+}
+
+button.navbar-toggler{
+  outline: 0;
+  border: 0;
+}
+
+hr {
+  margin: 2px 0;
+  border-top: 1px solid white;
+  width: 100%;
+}
+
+/*Styling for footer */
+
+footer{
+  width: 100%;
+  height: 80px;
+  font-size: 1.5em;
+}
+
+.social-icons > i{
+margin-right: 30px;
+}
+.social-icons > i:last-child {
+  margin-right :0;
+}
+
+/*Styling for success or error message*/
+
+.error{
+  color:red;
+}
+
+
+.success{
+  color:green;
+}
+
+/*Styling for all links*/
+a:link {
+  color: grey;
+}
+a:hover {
+  color: darken(grey,20%);
+}
+a:visited {
+  color: darken(grey, 35%);
+}
+
+.social-icons {
+  font-size: 1.1em;
+}
+
+.copyright-info {
+  font-size: 0.55em;
+  letter-spacing: 0.2px;
 }

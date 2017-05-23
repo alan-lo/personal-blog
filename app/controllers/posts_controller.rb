@@ -4,13 +4,13 @@ class PostsController < ApplicationController
   before_action :authorize, only: [:edit, :destroy, :update]
 
   def index
-   @posts =Post
-    .select("id","title","body", "user_id", "created_at", "updated_at", "count(likes.id)")
+   @posts = Post
+    .select("id","title","body", "user_id", "image", "created_at", "updated_at", "count(likes.id)")
     .joins("LEFT JOIN likes on likes.post_id = posts.id")
     .group("posts.id")
     .order("count DESC")
    @most_liked = Post
-     .select("id","title","body", "user_id", "created_at", "updated_at", "count(posts.id) as counts")
+     .select("id","title","body", "user_id", "image", "created_at", "updated_at", "count(posts.id) as counts")
      .joins(:likes)
      .group("posts.id")
      .order("counts DESC")
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
 
   private
   def  post_params
-    params.require(:post).permit([:title, :body, :category_id, :user_id])
+    params.require(:post).permit([:title, :body, :image, :category_id, :user_id])
   end
 
   def find_post
