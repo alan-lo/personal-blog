@@ -14,6 +14,7 @@ class PostsController < ApplicationController
      .joins(:likes)
      .group("posts.id")
      .order("counts DESC")
+     .limit(4);
   end
 
   def new

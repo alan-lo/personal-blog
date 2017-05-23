@@ -1,5 +1,15 @@
 @import "bootstrap";
+
+$navbar-link-color: white;
+$navbar-link-hover-color: grey;
+$all-links-color: grey;
+
+$error-message-color: red;
+$success-message-color: green;
+$font-color-body: grey;
+
 @import "*";
+
 
 $spacer: (
     300: 300px,
@@ -79,15 +89,15 @@ nav {
 }
 
 .navbar-toggler{
-  border: 1px solid white;
+  border: 1px solid $navbar-link-color;
 }
 
 .navbar-nav .nav-link, .navbar-nav .nav-item{
-  color: white;
+  color: $navbar-link-color;
 }
 
 .navbar-nav .nav-link:hover, .navbar-brand:hover, .navbar-brand:focus{
-  color: grey;
+  color: $navbar-link-hover-color;
 }
 
 .bar{
@@ -111,7 +121,7 @@ nav {
   letter-spacing: 5px;
   display: flex;
   align-items: center;
-  color: white;
+  color: $navbar-link-color;
 }
 
 .brand-icon-img{
@@ -119,7 +129,7 @@ nav {
 }
 
 .navbar-toggler .fa-bars {
-  color: white;
+  color: $navbar-link-color;
   font-size: 1.5em;
 }
 
@@ -138,7 +148,7 @@ button.navbar-toggler{
 
 hr {
   margin: 2px 0;
-  border-top: 1px solid white;
+  border-top: 1px solid $navbar-link-color;
   width: 100%;
 }
 
@@ -158,25 +168,23 @@ margin-right: 30px;
 }
 
 /*Styling for success or error message*/
-
 .error{
-  color:red;
+  color:$error-message-color;
 }
 
-
 .success{
-  color:green;
+  color:$success-message-color;
 }
 
 /*Styling for all links*/
 a:link {
-  color: grey;
+  color: $all-links-color;
 }
 a:hover {
-  color: darken(grey,20%);
+  color: darken($all-links-color,20%);
 }
 a:visited {
-  color: darken(grey, 35%);
+  color: darken($all-links-color, 35%);
 }
 
 .social-icons {
