@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     .select("id","title","body", "user_id", "image", "created_at", "updated_at", "count(likes.id)")
     .joins("LEFT JOIN likes on likes.post_id = posts.id")
     .group("posts.id")
-    .order("count DESC")
+    .order("created_at DESC")
    @most_liked = Post
      .select("id","title","body", "user_id", "image", "created_at", "updated_at", "count(posts.id) as counts")
      .joins(:likes)
