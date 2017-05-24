@@ -10,6 +10,11 @@ Blog post owners get an notification email every time someone makes a comment. P
  * Leave comments
  * Password reset
 
+## Built with
+
+  * Cloudinary with CarrierWave for uploading images to cloud server.
+  * Cancancan to handle user authentication and authorization.
+
 ## Deployment
 
 * The project is deployed to production on Heroku.
