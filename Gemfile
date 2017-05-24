@@ -43,7 +43,9 @@ gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 gem 'sinatra', '2.0.0.beta2'
 
+
 gem 'carrierwave', '~> 1.0'
+gem 'cloudinary'
 gem "mini_magick"
 
 #include tether

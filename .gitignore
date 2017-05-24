@@ -39,6 +39,7 @@ Thumbs.db
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/config/secrets.yml
 
 # Exclude Folders
 node_modules/
