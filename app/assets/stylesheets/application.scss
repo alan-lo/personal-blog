@@ -1,15 +1,14 @@
-@import "bootstrap";
-
 $navbar-link-color: white;
 $navbar-link-hover-color: grey;
 $all-links-color: grey;
-
 $error-message-color: red;
 $success-message-color: green;
 $font-color-body: grey;
+$footer-color: #292b2c;
+$footer-font-color: white;
 
+@import "bootstrap";
 @import "*";
-
 
 $spacer: (
     300: 300px,
@@ -63,7 +62,30 @@ $font: (
   }
 }
 
-body{
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  transition: $args;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin circle($lens-width, $lens-height, $color){
+  position: relative;
+  width:$lens-width;
+  height:$lens-height;
+  border-radius: 50%;
+  background-color: $color;
+  overflow: hidden;
+}
+
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -156,15 +178,67 @@ hr {
 
 footer{
   width: 100%;
-  height: 80px;
+  min-height: 80px;
   font-size: 1.5em;
+  background-color: $footer-color;
+  color:white;
+  font-weight: 200;
+  padding-top: 10px;
+  overflow: hidden;
 }
 
-.social-icons > i{
-margin-right: 30px;
+.social-icons {
+  font-size: 0.8em;
 }
-.social-icons > i:last-child {
+
+.social-icons > .icon.icon-circle{
+  margin-right: 30px;
+}
+
+.social-icons > .icon.icon-circle:last-child {
   margin-right :0;
+}
+
+.social-icons a:link {
+  color: darken($footer-font-color, 10%);
+}
+
+.social-icons a:visited {
+  color: darken($footer-font-color, 10%);
+}
+
+.social-icons a:hover {
+  color: darken($footer-font-color, 30%);
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-circle.facebook{
+  @include circle(40px, 40px, #2D4373);
+}
+
+.icon-circle.instagram{
+  @include circle(40px, 40px, #305777);
+}
+
+.icon-circle.youtube{
+  @include circle(40px, 40px, #E42B26);
+}
+
+.icon-circle.twitter{
+  @include circle(40px, 40px, #55ACEE);
+}
+
+.icon-circle.google{
+  @include circle(40px, 40px, #C23321);
+}
+
+.copyright-info {
+  font-size: 0.55em;
+  letter-spacing: 0.2px;
 }
 
 /*Styling for success or error message*/
@@ -180,18 +254,11 @@ margin-right: 30px;
 a:link {
   color: $all-links-color;
 }
-a:hover {
-  color: darken($all-links-color,20%);
-}
+
 a:visited {
   color: darken($all-links-color, 35%);
 }
 
-.social-icons {
-  font-size: 1.1em;
-}
-
-.copyright-info {
-  font-size: 0.55em;
-  letter-spacing: 0.2px;
+a:hover {
+  color: darken($all-links-color,20%);
 }
