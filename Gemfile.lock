@@ -45,6 +45,7 @@ GEM
     autoprefixer-rails (6.7.2)
       execjs
     awesome_print (1.7.0)
+    aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
@@ -56,6 +57,9 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    cloudinary (1.8.1)
+      aws_cf_signer
+      rest-client
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -74,6 +78,12 @@ GEM
       activerecord (> 3.0.0)
       delayed_job (> 2.0.3)
       sinatra (>= 1.4.4)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.7.0)
     faker (1.7.3)
@@ -82,6 +92,8 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hirb (0.7.3)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.8.0)
     interactive_editor (0.0.10)
       spoon (>= 0.0.1)
@@ -112,6 +124,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     mustermann (1.0.0.beta2)
+    netrc (0.11.0)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -156,6 +169,10 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -189,6 +206,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
     web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -208,9 +228,11 @@ DEPENDENCIES
   byebug
   cancancan
   carrierwave (~> 1.0)
+  cloudinary
   coffee-rails (~> 4.2)
   delayed_job_active_record
   delayed_job_web
+  dotenv-rails
   faker (~> 1.7.3)
   hirb
   interactive_editor
