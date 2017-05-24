@@ -72,7 +72,7 @@ div.most-like > div{
 
 
 .row {
-    margin-bottom: 12px !important;
+  margin-bottom: 12px !important;
 }
 
 div.new-post textarea {
@@ -163,6 +163,7 @@ a:link{
   position: relative;
 }
 
+/*Size of the overlay*/
 .overlay-first-img.post-first-img {
   height: 35%;
   position: absolute;
@@ -170,9 +171,14 @@ a:link{
   background-color: rgba(0, 0, 0, 0.35);
 }
 
+.overlay-first-img * {
+  @include transition(all 0.3s linear);
+}
+
 /* under the title when hover over the overlay*/
-.overlay-first-img:hover .post-first-title{
-  text-decoration: underline;
+.overlay-first-img:hover *{
+  // text-decoration: underline;
+  color: darken(white, 40%)!important;
 }
 
 .overlay-content.first-img {
@@ -191,9 +197,8 @@ a:link{
 }
 
 .post-first-date{
-  font-size: 0.5em;
-  display: none;
-  font-weight: 300;
+  font-size: 0.4em;
+  font-weight: 200;
 }
 
 .post-first-title {
@@ -206,9 +211,25 @@ a:link{
   position:absolute;
   bottom: 10px;
   right: 10px;
-  font-size: 1.9em;
+  font-size: 0.6em;
   color: white;
-  font-weight: 300;
+  font-weight: 200;
+}
+
+.post-first-info {
+  display: none;
+}
+
+.post-first-info *{
+  margin-right: 20px;
+  font-size: 0.4em;
+  font-weight: 200;
+  color: white;
+}
+
+.fa.fa-heart.post-first {
+  margin-right: 20px;
+  color: white;
 }
 
 @media (max-width: 578px){
@@ -241,11 +262,6 @@ a:link{
       margin-right: 30px;
   }
 
-  .post-first-date {
-    font-size: 0.5em !important;
-    display: block !important;
-  }
-
   .post-first-title {
     font-size: 0.8em !important;
   }
@@ -261,5 +277,9 @@ a:link{
     }
     .bar{
       display:none;
+    }
+    .post-first-info {
+      display: flex !important;
+      align-items: center !important;
     }
 }

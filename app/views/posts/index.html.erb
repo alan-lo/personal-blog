@@ -25,15 +25,27 @@
           <div class="post-first-img" style="background-image: url('<%= p.image.url%>')">
             <%= link_to post_path(p) do %>
             <div class="overlay-first-img post-first-img">
-              <div class="d-flex align-items-center overlay-content first-img">
+              <div class="d-flex flex-column align-items-start justify-content-center overlay-content first-img">
                 <div class="post-first-title">
                     <%= p.title %>
                 </div>
-                <h4 class="post-first-date">
-                  <%= p.created_at.strftime("%Y-%m-%d") %>
-                </h4>
+                <div class="post-first-info">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  <div class="post-first-date">
+                    <%= p.created_at.strftime("%Y-%m-%d") %>
+                  </div>
+                  <i class="fa fa-heart post-first" aria-hidden="true"></i>
+                  <div class="post-first-likes">
+                    <%= pluralize(p.likes.count, 'Like')%>
+                  </div>
+                  <i class="fa fa-comments" aria-hidden="true"></i>
+                  <div class="post-first-comments">
+                    <%= pluralize(p.comments.count, 'Comment')%>
+                  </div>
+                  </div>
+                  <div class="post-author first-post">By <%= p.user.first_name %> <%= p.user.last_name %></div>
+                </div>
               </div>
-              <h4 class="post-author first-post">By <%= p.user.first_name %> <%= p.user.last_name %></h4>
             </div>
             <% end %>
           </div>
