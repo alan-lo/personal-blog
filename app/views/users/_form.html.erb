@@ -22,3 +22,9 @@
     <%= f.text_area(:profile, {class: 'form-control'})%>
   </div>
 </div>
+<div class="form-group row align-items-start">
+  <%= f.label :avatar, "Upload your Avatar:", class: "pl-3-0 col-4 font-size-1.5" %>
+  <div class="col-5">
+    <%= f.file_field(:avatar, {class: 'form-control'})%>
+  </div>
+</div>

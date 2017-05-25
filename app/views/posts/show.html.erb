@@ -69,7 +69,7 @@
     <div class="col-xs offset-md-1 col-md-6">
       <div class="row d-flex flex-row">
         <div class="col-3">
-          <img class="img-fluid" width="150" height="150" src="<%= asset_path('homer-simpson3.jpg')%>" alt="image">
+          <img class="img-fluid" width="150" height="150" src="<%= @post.user.avatar.medium.url%>" alt="avatar">
         </div>
         <div class="col-9">
           <div class="row">
@@ -113,7 +113,7 @@
       <div class="col offset-md-2 col-md-8">
         <div class="row">
           <div class="col-3">
-            <img class="img-fluid" src="<%= asset_path('homer-simpson3.jpg') %>" alt="image">
+            <img class="img-fluid" src="<%= comment.user.avatar.medium.url %>" alt="avatar">
           </div>
           <div class="col-9 comment-body">
             <%=comment.body%>
