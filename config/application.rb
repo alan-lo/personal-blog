@@ -24,6 +24,9 @@ module Myblog
     # -- all .rb files in that directory are automatically loaded.
     config.active_job.queue_adapter = :delayed_job
 
-
+    # override rails to display htmltag instead of field_with_error classes attach to error fields
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
+      html_tag
+    }
   end
 end

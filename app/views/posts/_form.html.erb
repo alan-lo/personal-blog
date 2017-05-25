@@ -24,7 +24,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <%=  @post.errors.full_messages.join(', ')%>
+      <div class="error"><%=  @post.errors.full_messages.join(', ')%></div>
     </div>
   </div>
 <% end %>
