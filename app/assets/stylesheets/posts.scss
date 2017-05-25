@@ -40,7 +40,7 @@ div.most-like > div{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 
 .post-pic {
@@ -230,6 +230,18 @@ a:link{
 .fa.fa-heart.post-first {
   margin-right: 20px;
   color: white;
+}
+
+#popular-posts > *:nth-child(even) {
+  padding-left: 2px;
+}
+
+#popular-posts > *:nth-child(odd) {
+  padding-right: 2px;
+}
+
+#popular-posts > * {
+  margin-bottom: 4px;
 }
 
 @media (max-width: 578px){

@@ -7,6 +7,9 @@ has_many :comments, dependent: :nullify
 has_many :likes, dependent: :destroy
 has_many :liked_posts, through: :likes, source: :post
 
+mount_uploader :avatar, AvatarUploader
+
+validates :avatar_upload_size
 
 has_secure_password
 
@@ -22,5 +25,11 @@ validates :email, presence: true,
     self.reset_token = @reset_token
     update_attribute(:reset_digest,  @reset_token)
     update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  def avatar_upload_size
+    if avatar.size > 0.5.megabytes
+      errors.add(:base, "Avatar should be less than 0.5MB")
+    end
   end
 end

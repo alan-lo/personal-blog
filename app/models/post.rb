@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   validates :body , presence: true
 
   mount_uploader :image, PostImgUploader
-
+  validates :post_img_upload_size
 
   def liked_by?(user)
   # exists? returns true if the query in the argument returns something
@@ -24,6 +24,12 @@ class Post < ApplicationRecord
 
   def getLikeCounts()
     likes.count
+  end
+
+  def post_img_upload_size
+    if image.size > 5.megabytes
+      errors.add(:base, "Your image should be less than 5MB")
+    end
   end
 
 end
