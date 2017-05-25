@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   validates :body , presence: true
 
   mount_uploader :image, PostImgUploader
-  validates :post_img_upload_size
+  validate :image, :post_img_upload_size
 
   def liked_by?(user)
   # exists? returns true if the query in the argument returns something
